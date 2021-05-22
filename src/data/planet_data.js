@@ -1,5 +1,10 @@
 
 const planets = {
+  sun: {
+    name: "Sun",
+    hasBirds: false,
+    justification: "Maybe phoenix? It's pretty hot."
+  },
   mercury: {
     name: "Mercury",
     hasBirds: false,
