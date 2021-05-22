@@ -1,5 +1,8 @@
 import React from "react"
 
+const titleStyle = {
+  color: "white",
+}
 
 class Planet extends React.Component {
   constructor(props) {
@@ -12,9 +15,10 @@ class Planet extends React.Component {
 
 
   render() {
+    const { planet } = this.props
 
     return (
-      <h1></h1>
+      <h2 style={titleStyle}>{planet.name}</h2>
     )
   }
 }

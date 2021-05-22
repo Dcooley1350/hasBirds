@@ -1,6 +1,8 @@
 import * as React from "react"
 import image from '../images/Universe.jpg'
 import planets from '../data/planet_data.js'
+import Planet from '../components/Planet.js'
+
 
 // styles
 const pageStyles = {
@@ -15,8 +17,17 @@ const pageStyles = {
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
-  maxWidth: 320,
   color: '#ffffff',
+  textAlign: 'center',
+  width: '100%',
+}
+const flexContainer = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignContent: 'center',
+  width: '100%',
+  height: '100%',
 }
 
 // markup
@@ -26,6 +37,11 @@ const IndexPage = () => {
     <main style={pageStyles}>
       <title>Home Page</title>
       <h1 style={headingStyles}>Has Birds?</h1>
+      <div style={flexContainer}>
+        {Object.keys(planets).map(planet => (
+          <Planet key={planet} planet={planets[planet]} />
+        ))}
+      </div>
     </main>
   )
 }

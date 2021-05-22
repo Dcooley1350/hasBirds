@@ -1,47 +1,47 @@
 
 const planets = {
   mercury: {
-    Name: "Mercury",
+    name: "Mercury",
     hasBirds: false,
     justification: "it just doesn't",
   },
   venus: {
-    Name: "Venus",
+    name: "Venus",
     hasBirds: false,
     justification: "it just doesn't",
   },
   earth: {
-    Name: "Earth",
+    name: "Earth",
     hasBirds: true,
     justification: "It does! Can confirm",
   },
   mars: {
-    Name: "Mars",
+    name: "Mars",
     hasBirds: false,
     justification: "it just doesn't",
   },
   jupiter: {
-    Name: "Jupiter",
+    name: "Jupiter",
     hasBirds: false,
     justification: "it just doesn't",
   },
   saturn: {
-    Name: "Saturn",
+    name: "Saturn",
     hasBirds: false,
     justification: "it just doesn't",
   },
   uranus: {
-    Name: "Uranus",
+    name: "Uranus",
     hasBirds: false,
     justification: "it just doesn't",
   },
   neptune: {
-    Name: "neptune",
+    name: "neptune",
     hasBirds: false,
     justification: "it just doesn't",
   },
   pluto: {
-    Name: "Pluto",
+    name: "Pluto",
     hasBirds: false,
     justification: "it just doesn't",
   },
