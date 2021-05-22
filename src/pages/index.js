@@ -8,11 +8,6 @@ import Planet from '../components/Planet.js'
 const pageStyles = {
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  backgroundImage: `url(${image})`,
-  height: '100%',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
 }
 const headingStyles = {
   marginTop: 0,

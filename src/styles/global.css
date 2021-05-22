@@ -7,8 +7,10 @@
 
 html, body, #___gatsby, #gatsby-focus-wrapper {
   height: 100vh;
+  margin: 0px;
+  
 }
 
 body {
-  margin: 0px;
+  background-image: url("../images/Universe.jpg");
 }
