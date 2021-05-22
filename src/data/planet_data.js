@@ -1,5 +1,5 @@
 
-export default Planets = {
+const planets = {
   mercury: {
     Name: "Mercury",
     hasBirds: false,
@@ -46,3 +46,5 @@ export default Planets = {
     justification: "it just doesn't",
   },
 }
+
+export default planets
