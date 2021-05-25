@@ -1,5 +1,4 @@
 import * as React from "react"
-import image from '../images/Universe.jpg'
 import planets from '../data/planet_data.js'
 import Planet from '../components/Planet.js'
 
