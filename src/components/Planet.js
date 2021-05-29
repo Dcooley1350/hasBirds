@@ -7,6 +7,10 @@ const titleStyle = {
   }
 }
 const imgStyle = {
+  height: '100%',
+  width: '100%',
+}
+const nonHoveredStyle = {
   height: "50px",
   width: "50px",
 }
@@ -40,12 +44,19 @@ class Planet extends React.Component {
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
-        <img
+        <button
           onMouseOver={() => this.handlePlanetHover(true)}
+          onFocus={() => this.handlePlanetHover(true)}
           onMouseOut={() => this.handlePlanetHover(false)}
-          alt={planet.altDescription}
-          src={planet.img}
-          style={this.state.imgHover ? hoveredStyle : imgStyle} />
+          onBlur={() => this.handlePlanetHover(false)}
+          style={this.state.imgHover ? hoveredStyle : nonHoveredStyle}
+        >
+          <img
+            alt={planet.altDescription}
+            src={planet.img}
+            style={imgStyle}
+          />
+        </button>
       </div>
     )
   }
