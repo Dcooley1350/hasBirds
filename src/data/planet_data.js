@@ -35,7 +35,7 @@ const planets = {
   earth: {
     name: "Earth",
     hasBirds: true,
-    justification: "It does! Can confirm",
+    justification: "It does! Can confirm. They might be robots. That's another conversation.",
     img: Earth,
     altDescription: "A cartoon drawing of the planet Earth.",
   },
