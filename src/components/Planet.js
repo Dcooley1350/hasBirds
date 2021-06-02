@@ -1,18 +1,15 @@
 import React from "react"
 
 const titleStyle = {
-  color: "white",
-  '&:hover': {
-    color: 'green',
-  }
+  color: 'white',
 }
 const imgStyle = {
   height: '100%',
   width: '100%',
 }
 const nonHoveredStyle = {
-  height: "50px",
-  width: "50px",
+  height: '50px',
+  width: '50px',
 }
 const hoveredStyle = {
   height: '60px',
@@ -44,19 +41,20 @@ class Planet extends React.Component {
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
-        <button
+        <div
           onMouseOver={() => this.handlePlanetHover(true)}
           onFocus={() => this.handlePlanetHover(true)}
           onMouseOut={() => this.handlePlanetHover(false)}
           onBlur={() => this.handlePlanetHover(false)}
           style={this.state.imgHover ? hoveredStyle : nonHoveredStyle}
+          role="button"
         >
           <img
             alt={planet.altDescription}
             src={planet.img}
             style={imgStyle}
           />
-        </button>
+        </div>
       </div>
     )
   }
