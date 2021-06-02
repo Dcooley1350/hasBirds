@@ -21,15 +21,22 @@ const flexBox = {
   alignItems: 'center',
   textAlign: 'center',
 }
+const modalStyle = {
+  backgroundColor: 'white',
+  height: '20px',
+  width: '20px',
+}
 
 class Planet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      planetClick: false,
       planetHover: false,
     }
     this.handlePlanetClick = this.handlePlanetClick.bind(this)
     this.handlePlanetHover = this.handlePlanetHover.bind(this)
+    this.modalConditionalRender = this.modalConditionalRender.bind(this)
   }
 
   handlePlanetClick(isClicked) {
@@ -39,6 +46,16 @@ class Planet extends React.Component {
     this.setState({ planetHover: isHovered });
   }
 
+  modalConditionalRender() {
+    const { planetClick } = this.state
+    if (planetClick) {
+      return (
+        <div style={modalStyle}>
+          HI!
+        </div>
+      )
+    }
+  }
 
   render() {
     const { planet } = this.props
@@ -61,6 +78,7 @@ class Planet extends React.Component {
             style={imgStyle}
           />
         </div>
+        {this.modalConditionalRender()}
       </div>
     )
   }

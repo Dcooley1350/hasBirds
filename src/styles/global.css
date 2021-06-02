@@ -5,7 +5,7 @@
  * div with role="group"
 */
 
-html, body, #___gatsby, #gatsby-focus-wrapper {
+html, body, #___gatsby, #gatsby-focus-wrapper, main {
   height: 100vh;
   margin: 0px;
   
