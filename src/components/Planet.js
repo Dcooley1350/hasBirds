@@ -26,12 +26,17 @@ class Planet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgHover: false,
+      planetHover: false,
     }
+    this.handlePlanetClick = this.handlePlanetClick.bind(this)
     this.handlePlanetHover = this.handlePlanetHover.bind(this)
   }
+
+  handlePlanetClick(isClicked) {
+    this.setState({ planetClick: isClicked })
+  }
   handlePlanetHover(isHovered) {
-    this.setState({ imgHover: isHovered });
+    this.setState({ planetHover: isHovered });
   }
 
 
@@ -42,11 +47,12 @@ class Planet extends React.Component {
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
         <div
+          onClick={() => this.handlePlanetClick(true)}
           onMouseOver={() => this.handlePlanetHover(true)}
           onFocus={() => this.handlePlanetHover(true)}
           onMouseOut={() => this.handlePlanetHover(false)}
           onBlur={() => this.handlePlanetHover(false)}
-          style={this.state.imgHover ? hoveredStyle : nonHoveredStyle}
+          style={this.state.planetHover ? hoveredStyle : nonHoveredStyle}
           role="button"
         >
           <img
