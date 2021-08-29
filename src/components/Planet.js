@@ -1,4 +1,5 @@
 import React from "react"
+import Popover from './PopOver'
 
 const titleStyle = {
   color: 'white',
@@ -21,55 +22,43 @@ const flexBox = {
   alignItems: 'center',
   textAlign: 'center',
 }
-const modalStyle = {
-  backgroundColor: 'white',
-  height: '20px',
-  width: '20px',
-}
+
 
 class Planet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planetClick: false,
+      popOverOpen: false,
       planetHover: false,
     }
-    this.handlePlanetClick = this.handlePlanetClick.bind(this)
+    this.handleTogglePopOver = this.handleTogglePopOver.bind(this)
     this.handlePlanetHover = this.handlePlanetHover.bind(this)
-    this.modalConditionalRender = this.modalConditionalRender.bind(this)
   }
 
-  handlePlanetClick(isClicked) {
-    this.setState({ planetClick: isClicked })
+  handleTogglePopOver(isClicked) {
+    this.setState({ popOverOpen: isClicked })
   }
   handlePlanetHover(isHovered) {
     this.setState({ planetHover: isHovered });
   }
 
-  modalConditionalRender() {
-    const { planetClick } = this.state
-    if (planetClick) {
-      return (
-        <div style={modalStyle}>
-          HI!
-        </div>
-      )
-    }
-  }
-
   render() {
     const { planet } = this.props
+    const {
+      popOverOpen,
+      planetHover,
+    } = this.state
 
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
         <div
-          onClick={() => this.handlePlanetClick(true)}
+          onClick={() => this.handleTogglePopOver(true)}
           onMouseOver={() => this.handlePlanetHover(true)}
           onFocus={() => this.handlePlanetHover(true)}
           onMouseOut={() => this.handlePlanetHover(false)}
           onBlur={() => this.handlePlanetHover(false)}
-          style={this.state.planetHover ? hoveredStyle : nonHoveredStyle}
+          style={planetHover ? hoveredStyle : nonHoveredStyle}
           role="button"
         >
           <img
@@ -78,7 +67,7 @@ class Planet extends React.Component {
             style={imgStyle}
           />
         </div>
-        {this.modalConditionalRender()}
+        {popOverOpen && <Popover planet={planet} handleTogglePopover={this.handleTogglePopOver} />}
       </div>
     )
   }
