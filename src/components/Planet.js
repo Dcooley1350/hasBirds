@@ -1,6 +1,7 @@
 import React from "react"
-import Popover from './PopOver'
+import Modal from "react-modal/lib/components/Modal"
 
+// Styles
 const titleStyle = {
   color: 'white',
 }
@@ -23,21 +24,35 @@ const flexBox = {
   textAlign: 'center',
 }
 
+const modalStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    position: 'fixed',
+  },
+  content: {
+    height: '20vh',
+    width: '30vw',
+    margin: 'auto'
+  }
+}
+
+Modal.setAppElement('#___gatsby')
 
 class Planet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      popOverOpen: false,
+      modalIsOpen: false,
       planetHover: false,
     }
-    this.handleTogglePopOver = this.handleTogglePopOver.bind(this)
+    this.handleToggleModal = this.handleToggleModal.bind(this)
     this.handlePlanetHover = this.handlePlanetHover.bind(this)
   }
 
-  handleTogglePopOver(isClicked) {
-    this.setState({ popOverOpen: isClicked })
+  handleToggleModal(isClicked) {
+    this.setState({ modalIsOpen: isClicked })
   }
+
   handlePlanetHover(isHovered) {
     this.setState({ planetHover: isHovered });
   }
@@ -45,7 +60,7 @@ class Planet extends React.Component {
   render() {
     const { planet } = this.props
     const {
-      popOverOpen,
+      modalIsOpen,
       planetHover,
     } = this.state
 
@@ -53,7 +68,7 @@ class Planet extends React.Component {
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
         <div
-          onClick={() => this.handleTogglePopOver(true)}
+          onClick={() => this.handleToggleModal(true)}
           onMouseOver={() => this.handlePlanetHover(true)}
           onFocus={() => this.handlePlanetHover(true)}
           onMouseOut={() => this.handlePlanetHover(false)}
@@ -67,7 +82,16 @@ class Planet extends React.Component {
             style={imgStyle}
           />
         </div>
-        {popOverOpen && <Popover planet={planet} handleTogglePopover={this.handleTogglePopOver} />}
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={() => this.handleToggleModal(false)}
+          style={modalStyles}
+          contentLabel="Planet info Modal"
+        >
+          <h2>{planet.name}</h2>
+          <p>{planet.justification}</p>
+          <button onClick={() => this.handleToggleModal(false)}>close</button>
+        </Modal>
       </div>
     )
   }
