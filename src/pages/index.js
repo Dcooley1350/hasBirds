@@ -18,8 +18,9 @@ const headingStyles = {
 const flexContainer = {
   display: 'flex',
   flexDirection: 'row',
+  flexWrap: 'wrap',
   justifyContent: 'space-around',
-  alignContent: 'center',
+  alignItems: 'flex-start',
   width: '100%',
   height: '100%',
 }
@@ -27,9 +28,8 @@ const flexContainer = {
 // markup
 const IndexPage = () => {
   return (
-
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>Has Birds?</title>
       <h1 style={headingStyles}>Has Birds?</h1>
       <div style={flexContainer}>
         {Object.keys(planets).map(planet => (
