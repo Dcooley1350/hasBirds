@@ -23,17 +23,28 @@ const flexBox = {
   alignItems: 'center',
   textAlign: 'center',
 }
-
 const modalStyles = {
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     position: 'fixed',
   },
   content: {
-    height: '20vh',
-    width: '30vw',
+    height: '30vh',
+    width: '40vw',
     margin: 'auto'
   }
+}
+const modalTitle = {
+  textAlign: 'center',
+}
+const justificationStyle = {
+  textIndent: '20px'
+}
+const closeButtonStyle = {
+
+}
+const buttonBox = {
+  textAlign: 'right'
 }
 
 Modal.setAppElement('#___gatsby')
@@ -88,9 +99,11 @@ class Planet extends React.Component {
           style={modalStyles}
           contentLabel="Planet info Modal"
         >
-          <h2>{planet.name}</h2>
-          <p>{planet.justification}</p>
-          <button onClick={() => this.handleToggleModal(false)}>close</button>
+          <div style={buttonBox}>
+            <button style={closeButtonStyle} onClick={() => this.handleToggleModal(false)}>X</button>
+          </div>
+          <h2 style={modalTitle}>{planet.name}</h2>
+          <p style={justificationStyle}>{planet.justification}</p>
         </Modal>
       </div>
     )
