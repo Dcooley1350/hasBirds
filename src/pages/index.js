@@ -22,7 +22,7 @@ const flexContainer = {
   justifyContent: 'space-around',
   alignItems: 'flex-start',
   width: '100%',
-  height: '100%',
+  height: '100%'
 }
 
 // markup
