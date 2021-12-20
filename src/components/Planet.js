@@ -30,8 +30,12 @@ const modalTitle = {
 const justificationStyle = {
   textIndent: '20px'
 }
-const closeButtonStyle = {
-
+const buttonStyle = {
+  background: 'none',
+  cursor: 'pointer',
+  border: 0,
+  margin: 0,
+  padding: 0
 }
 const buttonBox = {
   textAlign: 'right'
@@ -48,6 +52,7 @@ class Planet extends React.Component {
     }
     this.handleToggleModal = this.handleToggleModal.bind(this)
     this.handlePlanetHover = this.handlePlanetHover.bind(this)
+    this.handleModalClose = this.handleModalClose.bind(this)
   }
 
   handleToggleModal(isClicked) {
@@ -56,6 +61,11 @@ class Planet extends React.Component {
 
   handlePlanetHover(isHovered) {
     this.setState({ planetHover: isHovered });
+  }
+
+  handleModalClose() {
+    this.handleToggleModal(false)
+    this.handlePlanetHover(false)
   }
 
   render() {
@@ -78,29 +88,32 @@ class Planet extends React.Component {
         width: `${planet.imgWidth}px`
       }
     }
-    
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
+        <button
+          onClick={() => this.handleToggleModal(true)}
+          onMouseOver={() => this.handlePlanetHover(true)}
+          onFocus={() => this.handlePlanetHover(true)}
+          onMouseOut={() => this.handlePlanetHover(false)}
+          onBlur={() => this.handlePlanetHover(false)}
+          style={buttonStyle}
+        >
           <img
-            onClick={() => this.handleToggleModal(true)}
-            onMouseOver={() => this.handlePlanetHover(true)}
-            onFocus={() => this.handlePlanetHover(true)}
-            onMouseOut={() => this.handlePlanetHover(false)}
-            onBlur={() => this.handlePlanetHover(false)}
-            role="button"
             alt={planet.altDescription}
             src={planet.img}
             style={imgStyle}
           />
+        </button>
         <Modal
           isOpen={modalIsOpen}
-          onRequestClose={() => this.handleToggleModal(false)}
+          onRequestClose={() => this.handleModalClose()}
+          shouldReturnFocusAfterClose={false}
           style={modalStyles}
           contentLabel="Planet info Modal"
         >
           <div style={buttonBox}>
-            <button style={closeButtonStyle} onClick={() => this.handleToggleModal(false)}>X</button>
+            <button onClick={() => this.handleModalClose()}>X</button>
           </div>
           <h2 style={modalTitle}>{planet.name}</h2>
           <p style={justificationStyle}>{planet.justification}</p>

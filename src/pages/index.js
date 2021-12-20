@@ -32,8 +32,8 @@ const IndexPage = () => {
       <title>Has Birds?</title>
       <h1 style={headingStyles}>Has Birds?</h1>
       <div style={flexContainer}>
-        {Object.keys(planets).map(planet => (
-          <Planet key={planet} planet={planets[planet]} />
+        {Object.keys(planets).map((planet, index) => (
+          <Planet key={index} planet={planets[planet]} />
         ))}
       </div>
     </main>
