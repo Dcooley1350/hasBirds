@@ -5,23 +5,13 @@ import Modal from "react-modal/lib/components/Modal"
 const titleStyle = {
   color: 'white',
 }
-const imgStyle = {
-  height: '100%',
-  width: '100%',
-}
-const nonHoveredStyle = {
-  height: '50px',
-  width: '50px',
-}
-const hoveredStyle = {
-  height: '60px',
-  width: '60px',
-}
 const flexBox = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   textAlign: 'center',
+  height: '150px',
+  width: '110px'
 }
 const modalStyles = {
   overlay: {
@@ -75,24 +65,34 @@ class Planet extends React.Component {
       planetHover,
     } = this.state
 
+    // Set planet size and hover
+    var imgStyle
+    if(planetHover) {
+      imgStyle = {
+        height: `${planet.imgHeight + 10}px`,
+        width: `${planet.imgWidth + 10}px`
+      }
+    } else {
+      imgStyle = {
+        height: `${planet.imgHeight}px`,
+        width: `${planet.imgWidth}px`
+      }
+    }
+    
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
-        <div
-          onClick={() => this.handleToggleModal(true)}
-          onMouseOver={() => this.handlePlanetHover(true)}
-          onFocus={() => this.handlePlanetHover(true)}
-          onMouseOut={() => this.handlePlanetHover(false)}
-          onBlur={() => this.handlePlanetHover(false)}
-          style={planetHover ? hoveredStyle : nonHoveredStyle}
-          role="button"
-        >
           <img
+            onClick={() => this.handleToggleModal(true)}
+            onMouseOver={() => this.handlePlanetHover(true)}
+            onFocus={() => this.handlePlanetHover(true)}
+            onMouseOut={() => this.handlePlanetHover(false)}
+            onBlur={() => this.handlePlanetHover(false)}
+            role="button"
             alt={planet.altDescription}
             src={planet.img}
             style={imgStyle}
           />
-        </div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => this.handleToggleModal(false)}
