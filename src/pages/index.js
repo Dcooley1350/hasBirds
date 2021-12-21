@@ -6,6 +6,7 @@ import Planet from '../components/Planet.js'
 import favicon16 from '../images/favicon/favicon-16x16.png'
 import favicon32 from '../images/favicon/favicon-32x32.png'
 import Background from "../images/Universe.jpg"
+import "../styles/global.css"
 
 
 // styles
