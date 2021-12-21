@@ -1,7 +1,10 @@
 import * as React from "react"
+import { Helmet } from "react-helmet"
+
 import planets from '../data/planet_data.js'
 import Planet from '../components/Planet.js'
-
+import favicon16 from '../images/favicon/favicon-16x16.png'
+import favicon32 from '../images/favicon/favicon-32x32.png'
 
 // styles
 const pageStyles = {
@@ -29,6 +32,23 @@ const flexContainer = {
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
+      <Helmet
+        title="Has birds?"
+        meta={[
+          {
+            name: "description",
+            content: "Has birds?",
+          },
+          {
+            name: "keywords",
+            content: "bird, birds",
+          },
+        ]}
+        link={[
+          { rel: "icon", type: "image/png", sizes: "16x16", href: `${favicon16}` },
+          { rel: "icon", type: "image/png", sizes: "32x32", href: `${favicon32}` },
+        ]}
+      />
       <title>Has Birds?</title>
       <h1 style={headingStyles}>Has Birds?</h1>
       <div style={flexContainer}>
