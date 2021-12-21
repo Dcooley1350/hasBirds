@@ -5,11 +5,13 @@ import planets from '../data/planet_data.js'
 import Planet from '../components/Planet.js'
 import favicon16 from '../images/favicon/favicon-16x16.png'
 import favicon32 from '../images/favicon/favicon-32x32.png'
+import Background from "../images/Universe.jpg"
+
 
 // styles
 const pageStyles = {
-  padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  backgroundImage: `url(${Background})`,
 }
 const headingStyles = {
   marginTop: 0,
@@ -26,6 +28,9 @@ const flexContainer = {
   alignItems: 'flex-start',
   width: '100%',
   height: '100%'
+}
+const padding = {
+  padding: "96px"
 }
 
 // markup
@@ -50,11 +55,14 @@ const IndexPage = () => {
         ]}
       />
       <title>Has Birds?</title>
-      <h1 style={headingStyles}>Has Birds?</h1>
-      <div style={flexContainer}>
-        {Object.keys(planets).map((planet, index) => (
-          <Planet key={index} planet={planets[planet]} />
-        ))}
+      <div style={padding}>
+        <h1 style={headingStyles}>Has Birds?</h1>
+        <div style={flexContainer}>
+          {Object.keys(planets).map((planet, index) => (
+            <Planet key={index} planet={planets[planet]} />
+          ))}
+        </div>
+
       </div>
     </main>
   )
