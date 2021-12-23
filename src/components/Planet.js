@@ -88,6 +88,7 @@ class Planet extends React.Component {
         width: `${planet.imgWidth}px`
       }
     }
+    
     return (
       <div style={flexBox}>
         <h2 style={titleStyle}>{planet.name}</h2>
